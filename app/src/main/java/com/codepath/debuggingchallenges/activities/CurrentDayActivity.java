@@ -8,6 +8,8 @@ import com.codepath.debuggingchallenges.R;
 
 import java.util.Calendar;
 
+import static com.codepath.debuggingchallenges.R.layout.activity_current_day;
+
 public class CurrentDayActivity extends AppCompatActivity {
 
     TextView tvDay;
@@ -16,8 +18,9 @@ public class CurrentDayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_day);
-        tvDay = (TextView) findViewById(R.id.tvDay);
-        tvDay.setText(getDayOfMonth());
+        tvDay = findViewById(R.id.tvDay);
+        // fixed by crash by casting text to a String
+        tvDay.setText(Integer.toString(getDayOfMonth()));
     }
 
     private int getDayOfMonth() {
